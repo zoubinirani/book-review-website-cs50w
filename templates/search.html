@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search for book
+{% endblock %}
+
+{% block h1 %}
+Please type in the information about the book below
+{% endblock %}
+
+{% block body %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Search For Book</h3>
+    <form method="POST" action="{{url_for('search_book')}}">
+        <div class="input-group form-group">
+            <div class="form-control">
+                <input type="text" name="title" placeholder="Book Title">
+            </div>
+        </div>
+
+        <div class="input-group form-group">
+            <div class="form-control">
+                <input type="text" name="author" placeholder="Author">
+            </div>
+        </div>
+        <div class="input-group form-group">
+            <div class="form-control">
+                <input type="text" name="isbn" placeholder="ISBN #" autofocus="">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
+      
+

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search results
+{% endblock %}
+
+{% block h1 %}
+Below are the search results:
+{% endblock %}
+
+{% block body %}
+<ul>
+    {% for result in results %}
+    <li> <a href = "{{ url_for('book', book_isbn=result.isbn)}}">
+        {{ result.title}}, {{result.author}}, {{result.isbn}}, {{result.year}}
+    </a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

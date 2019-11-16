@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{result.title}}
+{% endblock %}
+
+{% block h1 %}
+Information about {{result.title}}
+{% endblock %}
+
+{% block body %}
+<ul>
+    <li>Title: {{result.title}} </li>
+    <li>Author: {{result.author}}</li>
+    <li>ISBN: {{result.isbn}}</li>
+    <li>Year: {{result.year}}</li>
+    <li>Average Score: {{rating}}</li>
+    <li>Review Count: {{count}}</li>
+</ul>
+
+<br>
+<h3 class="title">Write review</h3>
+<div>
+    <form method="POST" action="{{url_for('write_review', book_isbn=result.isbn)}}">
+        <div class="input-group form-group">
+            <textarea name="review" id="review" rows="5">Add you review here!
+            </textarea>    
+        </div>    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<br>
+<h3>Reviews left by users</h3>
+<ul>
+    {% if reviews %}
+        {% for review in reviews %}
+            <li>{{review.user_id}}: {{review.review}}</li>
+        {% endfor %}
+    {% else %}
+    <li>No reviews yet. Go write one!</li>
+    {% endif %}
+</ul>
+
+{% endblock %}
+
+

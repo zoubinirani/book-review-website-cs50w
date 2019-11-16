@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BookReviewHub: {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    </head>
+    <body>
+        <body style="background-color:lightcyan;">
+        <h1 id = "titleofpage"> {% block h1 %}{% endblock %}</h1>
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+        </div>
+        <div class="container">
+            <br>
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    </body>
+</html>

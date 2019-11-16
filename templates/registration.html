@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block h1 %}
+Please signup below
+{% endblock %}
+
+{% block body %}
+<div class="column is-4 is-offset-4">
+        <h3 class="title">Signup</h3>
+        <form method="POST" action="{{url_for('signup')}}">
+            <div class="input-group form-group">
+                <div class="form-control">
+                    <input type="email" name="email" placeholder="Your Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="form-control">
+                    <input type="password" name="password" placeholder="Your Password">
+                </div>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="form-control">
+                    <input type="password" name="confirmpassword" placeholder="Confirm Password">
+                    </div>
+                </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+{% endblock %}

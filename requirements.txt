@@ -1,0 +1,9 @@
+Flask
+Flask-Session
+psycopg2-binary
+SQLAlchemy
+csv
+os
+passlib.hash
+time
+requests

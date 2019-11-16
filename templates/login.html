@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block h1 %}
+Please login below
+{% endblock %}
+
+{% block body %}
+<div class="column is-4 is-offset-4">
+        <h3 class="title">Login</h3>
+        <form method="POST" action="{{url_for('logged_status')}}">
+            <div class="input-group form-group">
+                <div class="form-control">
+                    <input type="email" name="email" placeholder="Your Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="form-control">
+                    <input type="password" name="password" placeholder="Your Password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+    </div>
+{% endblock %}
+      
+
