@@ -147,7 +147,7 @@ def book(book_isbn):
     isbns = result.isbn
 
     #Get data from GoodReads API
-    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "ytMANoLD9Gxs2g7LGR9mcg", "isbns": isbns})
+    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": os.environ['goodreads_key'], "isbns": isbns})
 
     #Get reviews data
     reviews = db.execute(text("SELECT * from reviews WHERE isbn =:isbn"), {"isbn": isbn}).fetchall()
@@ -187,7 +187,7 @@ def get_book_data(isbn):
         return abort(404)
 
     #Get data from GoodReads API
-    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "ytMANoLD9Gxs2g7LGR9mcg", "isbns": isbn})
+    res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": os.environ['goodreads_key'], "isbns": isbn})
 
     goodreads_rating = res.json()["books"][0]['average_rating']
     goodreads_ratings_count = res.json()["books"][0]['work_ratings_count']
