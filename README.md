@@ -1,4 +1,4 @@
-# Project 1 Books for CS50W
+# Book Review Website for CS50w
 
 This project is a book review website built in Flask (backend). 
 
